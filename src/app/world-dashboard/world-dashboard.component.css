@@ -1,0 +1,14 @@
+@media only screen and (max-width: 720px){
+td.mat-cell:first-of-type{
+    padding: 5px !important;
+}
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.example-button-row{
+    float: left;
+    margin-top: -40px;
+}

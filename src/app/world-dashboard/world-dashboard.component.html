@@ -1,0 +1,104 @@
+<h2 style="margin-top: 70px; margin-left: 20px;">COVID-19 World Dashboard</h2>
+<div class="main-container">
+    <div class="world-first-container">
+        <mat-card style="margin-bottom: 15px; color: #f00">
+            <mat-card-content>
+                <mat-card-title style="align-content: center;">Confirmed</mat-card-title>
+                <h1 style="font-size: 24px;">{{cardData.cases | number}}
+                    <span
+                        style="font-size: 14px; margin-left: 3px; font-weight: 500;">[+{{cardData.todayCases | number}}]</span>
+                </h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-bottom: 15px; color: #cc7a00;">
+            <mat-card-content>
+                <mat-card-title>Active</mat-card-title>
+                <h1 style="font-size: 24px;">{{cardData.active | number}}
+                </h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-bottom: 15px; color: #129812">
+            <mat-card-content>
+                <mat-card-title>Recovered</mat-card-title>
+                <h1 style="font-size: 24px;">{{cardData.recovered | number}}
+                </h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card style="margin-bottom: 15px; color: grey">
+            <mat-card-content>
+                <mat-card-title>Deaths</mat-card-title>
+                <h1 style="font-size: 24px;">{{cardData.deaths | number}}
+                    <span
+                        style="font-size: 14px; margin-left: 3px; font-weight: 500;">[+{{cardData.todayDeaths | number}}]</span>
+                </h1>
+            </mat-card-content>
+        </mat-card>
+        <p>Last Updated: {{lastUpdated}}</p>
+    </div>
+    <div class="world-second-container">
+        <div id="chartdiv"></div>
+    </div>
+    <div class="word-table">
+        <!-- <div class="example-button-row">
+            <button mat-raised-button [color]="isNow" (click)="getData('Now')">Now</button>
+            <button mat-raised-button [color]="isYesterday" (click)="getData('Yesterday')">Yesterday</button>
+        </div> -->
+        <mat-card>
+            <mat-form-field style="width: 100%;">
+                <mat-label>Search Country</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. India">
+            </mat-form-field>
+        </mat-card>
+        <div class="mat-elevation-z8 table-scroll">
+            <table mat-table [dataSource]="dataSource" class="table-body" style="width: 100%; text-align: center;"
+                matSort>
+                <!-- <ng-container matColumnDef="sl">
+                    <th mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: 15px;">
+                        Sl No. </th>
+                    <td mat-cell *matCellDef="let row; let i = index;"> {{i+1}} </td>
+                </ng-container> -->
+                <ng-container matColumnDef="country">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bold;font-size: 15px;">
+                        Country </th>
+                    <td mat-cell *matCellDef="let row; let i = index;"  style="text-align: left;">{{i+1}}. {{row.country}} </td>
+                </ng-container>
+                <ng-container matColumnDef="cases">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                        style="font-weight: bold; text-align: center; font-size: 15px;"> Total Cases </th>
+                    <td mat-cell *matCellDef="let row"> {{row.cases | number}}<br/>
+                        <span style="font-size: 10px; color: #f00"
+                            *ngIf="row.todayCases">[+{{row.todayCases | number}}]</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="deaths">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                        style="font-weight: bold;text-align: center; font-size: 15px;"> Total Deaths </th>
+                    <td mat-cell *matCellDef="let row"> {{row.deaths | number}}<br/>
+                        <span style="font-size: 10px; color: #f00"
+                            *ngIf="row.todayCases">[+{{row.todayDeaths | number}}]</span>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="recovered">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                        style="font-weight: bold; text-align: center; font-size: 15px;"> Recovered Cases </th>
+                    <td mat-cell *matCellDef="let row"> {{row.recovered | number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="active">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                        style="font-weight: bold; text-align: center;   font-size: 15px;"> Active Cases </th>
+                    <td mat-cell *matCellDef="let row"> {{row.active | number}} </td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="million">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bold;  font-size: 15px;"> Per 1M Cases </th>
+            <td mat-cell *matCellDef="let row"> {{row.casesPerOneMillion}} </td>
+        </ng-container> -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <div class="paginator-footer">
+                <mat-paginator  fixed [pageSizeOptions]="[50,100,150,200]"></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

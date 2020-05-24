@@ -1,0 +1,38 @@
+@media only screen and (min-width: 720px){
+    .footer{
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        margin-top: 20px;
+    }
+}
+@media only screen and (max-width: 720px){
+    .footer{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin-top: 20px;
+    }   
+}
+.first-footer{
+    flex:1;
+}
+.second-footer{
+    flex:1;
+}
+.third-footer{
+    flex:1;
+}
+.fourth-footer{
+    flex:1;
+}
+.sidenav{
+    width: 50%;
+    margin-top: 56px;
+}
+.app-toolbar {
+    position: fixed;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}

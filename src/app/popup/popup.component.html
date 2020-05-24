@@ -1,0 +1,14 @@
+<i class="fa fa-arrows-alt" style="cursor: pointer;" aria-hidden="true" mat-dialog-close></i>
+<h3 style="text-align: center;">District wise data of {{data.state}}</h3>
+<table mat-table [dataSource]="dataSource" matSort style="font-weight: 500; margin: auto;">
+    <ng-container matColumnDef="state" style="text-align: left;">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bold;"> District </th>
+        <td mat-cell *matCellDef="let element"> {{element.district.district}} </td>
+    </ng-container>
+    <ng-container matColumnDef="confirmed">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-weight: bold;"> Confirmed </th>
+        <td mat-cell *matCellDef="let element" style="text-align:center"> {{element.district.data.confirmed}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

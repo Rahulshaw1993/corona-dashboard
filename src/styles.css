@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-toolbar-multiple-rows{
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+@media only screen and (min-width: 720px){
+    .main-container, .chart-conitaner{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin:0
+    }
+    .table-body{
+        font-weight: 500;
+    }
+    .third-container{
+        flex:2;
+    }
+    .india-table{
+        max-height: 480px;
+        overflow-y: scroll;
+        min-height: 480px;
+    }
+    td.mat-cell:first-of-type{
+        padding: 10px !important;
+        text-align: start !important;
+        }
+        
+        th.mat-header-cell{
+            padding: 15px !important;
+        }
+        .margin{
+            margin-left: 20px;
+        }
+        .table-scroll{
+            max-height: 450px;
+            font-size: 20px;
+            overflow-y: scroll;
+            margin-top: -25px;
+            min-height: 450px;
+        }
+
+        .paginator-footer {
+            bottom: 0px;
+            position: sticky;
+            z-index: 10;
+          }
+        /* .world-first-container,.world-second-container{
+            margin-top:-200px;
+        } */
+    }
+    @media only screen and (max-width: 720px){
+        .main-container, .chart-conitaner{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        } 
+        .third-container{
+            flex:2;
+        }
+        th.mat-header-cell{
+            padding: 5px !important;
+        }
+        td.mat-cell:first-of-type{
+            /* padding-left: 0px !important; */
+            text-align: start !important;
+            padding: 5px;
+        }
+        .margin{
+            margin-left: 0px;
+        }
+    }
+    .first-container{
+    flex:1.5;
+    }
+    .second-container{
+    flex:2;
+    }
+    
+    .chart--container {
+        min-height: 530px;
+        width: 100%;
+      }
+      
+      .zc-ref {
+        display: none;
+      }
+      .first{
+          flex:1;
+          margin-top: 20px;
+      }
+      .world-first-container{
+          flex:1
+      }
+      .world-second-container{
+          flex:2
+      }
+      .word-table{
+          flex:2
+      }
+      #chartdiv {
+        max-width: 100%;
+        height: 500px;
+      }
+      .mat-row:hover {
+        background-color: #eadfdfde;
+        color: #fff;
+      }
+      .progress-spinner{
+        position: absolute;
+          top:0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+            
+          margin: auto;
+      }
